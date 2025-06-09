@@ -1,0 +1,637 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"type": "string",
+			"metadata": "Workspace name",
+			"defaultValue": "alo-syn-vnet-mgmt"
+		},
+		"adessoBW_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'adessoBW'"
+		},
+		"alo-syn-vnet-mgmt-WorkspaceDefaultSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'alo-syn-vnet-mgmt-WorkspaceDefaultSqlServer'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:alo-syn-vnet-mgmt.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"alosynstorageaccount_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'alosynstorageaccount'"
+		},
+		"adessoBW_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "100"
+		},
+		"adessoBW_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "loewen-a"
+		},
+		"adessoBW_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "10.252.20.139"
+		},
+		"adessoBW_properties_typeProperties_systemNumber": {
+			"type": "string",
+			"defaultValue": "00"
+		},
+		"alo-syn-vnet-mgmt-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://alosynstorageaccount.dfs.core.windows.net"
+		},
+		"alosynstorageaccount_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://alosynstorageaccount.dfs.core.windows.net/"
+		}
+	},
+	"variables": {
+		"workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('workspaceName'), '/Ingest_adessoBW_USR01')]",
+			"type": "Microsoft.Synapse/workspaces/pipelines",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_USR01",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SapTableSource",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "MANDT",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "MANDT",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "BNAME",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "BNAME",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "STCOD",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "STCOD",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SPLD",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "SPLD",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SPLG",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "SPLG",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SPDB",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "SPDB",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SPDA",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "SPDA",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DATFM",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "DATFM",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DCPFM",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "DCPFM",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HDEST",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "HDEST",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HMAND",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "HMAND",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HNAME",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "HNAME",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "MENON",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "MENON",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "MENUE",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "MENUE",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "STRTT",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "STRTT",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "LANGU",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "LANGU",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CATTKENNZ",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "CATTKENNZ",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "TIMEFM",
+											"type": "String",
+											"physicalType": "C"
+										},
+										"sink": {
+											"name": "TIMEFM",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IANATZONECODE",
+											"type": "String",
+											"physicalType": "N"
+										},
+										"sink": {
+											"name": "IANATZONECODE",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "adessoBW_USR01",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_Target_Parquet",
+								"type": "DatasetReference",
+								"parameters": {
+									"Filesystem": {
+										"value": "@pipeline().parameters.Filesystem",
+										"type": "Expression"
+									},
+									"Folder": {
+										"value": "@pipeline().parameters.Folder",
+										"type": "Expression"
+									},
+									"Filename": {
+										"value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
+										"type": "Expression"
+									}
+								}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"Filesystem": {
+						"type": "string",
+						"defaultValue": "alosynfs"
+					},
+					"Folder": {
+						"type": "string",
+						"defaultValue": "Landing/adessoBW/USR01/OUT"
+					},
+					"Filenameprefix": {
+						"type": "string",
+						"defaultValue": "USR01"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-06-09T06:42:08Z"
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/datasets/adessoBW_USR01')]",
+				"[concat(variables('workspaceId'), '/datasets/DS_Target_Parquet')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/DS_Target_Parquet')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "alosynstorageaccount",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Filesystem": {
+						"type": "string",
+						"defaultValue": "alosynfs"
+					},
+					"Folder": {
+						"type": "string"
+					},
+					"Filename": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().Filename",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().Folder",
+							"type": "Expression"
+						},
+						"fileSystem": {
+							"value": "@dataset().Filesystem",
+							"type": "Expression"
+						}
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/alosynstorageaccount')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/adessoBW_USR01')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adessoBW",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SapTableResource",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "USR01"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/adessoBW')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/adessoBW')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "SapTable",
+				"typeProperties": {
+					"clientId": "[parameters('adessoBW_properties_typeProperties_clientId')]",
+					"language": "DE",
+					"sncMode": false,
+					"userName": "[parameters('adessoBW_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('adessoBW_password')]"
+					},
+					"server": "[parameters('adessoBW_properties_typeProperties_server')]",
+					"systemNumber": "[parameters('adessoBW_properties_typeProperties_systemNumber')]"
+				},
+				"connectVia": {
+					"referenceName": "IRSOnPrem",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/IRSOnPrem')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/alo-syn-vnet-mgmt-WorkspaceDefaultSqlServer')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"parameters": {
+					"DBName": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('alo-syn-vnet-mgmt-WorkspaceDefaultSqlServer_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/alo-syn-vnet-mgmt-WorkspaceDefaultStorage')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('alo-syn-vnet-mgmt-WorkspaceDefaultStorage_properties_typeProperties_url')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/alosynstorageaccount')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('alosynstorageaccount_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('alosynstorageaccount_accountKey')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/AutoResolveIntegrationRuntime')]",
+			"type": "Microsoft.Synapse/workspaces/integrationRuntimes",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "AutoResolve",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 8,
+							"timeToLive": 0
+						}
+					}
+				},
+				"managedVirtualNetwork": {
+					"type": "ManagedVirtualNetworkReference",
+					"referenceName": "default"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/IRSOnPrem')]",
+			"type": "Microsoft.Synapse/workspaces/integrationRuntimes",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/WorkspaceSystemIdentity')]",
+			"type": "Microsoft.Synapse/workspaces/credentials",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "ManagedIdentity",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/default')]",
+			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/default/synapse-ws-custstgacct--alo-syn-vnet-mgmt-alosynstorageaccount')]",
+			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"privateLinkResourceId": "/subscriptions/f20488a6-4e1e-4864-b913-2ef3c3d047fa/resourceGroups/CC_MS/providers/Microsoft.Storage/storageAccounts/alosynstorageaccount",
+				"groupId": "dfs",
+				"fqdns": [
+					"alosynstorageaccount.dfs.core.windows.net"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/default/synapse-ws-sql--alo-syn-vnet-mgmt')]",
+			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"privateLinkResourceId": "/subscriptions/f20488a6-4e1e-4864-b913-2ef3c3d047fa/resourceGroups/CC_MS/providers/Microsoft.Synapse/workspaces/alo-syn-vnet-mgmt",
+				"groupId": "sql",
+				"fqdns": [
+					"alo-syn-vnet-mgmt.86ed07c5-eaff-47e2-b429-5c77c993754f.sql.azuresynapse.net"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/default/synapse-ws-sqlOnDemand--alo-syn-vnet-mgmt')]",
+			"type": "Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"privateLinkResourceId": "/subscriptions/f20488a6-4e1e-4864-b913-2ef3c3d047fa/resourceGroups/CC_MS/providers/Microsoft.Synapse/workspaces/alo-syn-vnet-mgmt",
+				"groupId": "sqlOnDemand",
+				"fqdns": [
+					"alo-syn-vnet-mgmt-ondemand.86ed07c5-eaff-47e2-b429-5c77c993754f.sql.azuresynapse.net"
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/managedVirtualNetworks/default')]"
+			]
+		}
+	]
+}

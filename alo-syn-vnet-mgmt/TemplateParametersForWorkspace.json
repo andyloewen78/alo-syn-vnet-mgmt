@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "alo-syn-vnet-mgmt"
+		},
+		"adessoBW_password": {
+			"value": ""
+		},
+		"alo-syn-vnet-mgmt-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:alo-syn-vnet-mgmt.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"alosynstorageaccount_accountKey": {
+			"value": ""
+		},
+		"adessoBW_properties_typeProperties_clientId": {
+			"value": "100"
+		},
+		"adessoBW_properties_typeProperties_userName": {
+			"value": "loewen-a"
+		},
+		"adessoBW_properties_typeProperties_server": {
+			"value": "10.252.20.139"
+		},
+		"adessoBW_properties_typeProperties_systemNumber": {
+			"value": "00"
+		},
+		"alo-syn-vnet-mgmt-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://alosynstorageaccount.dfs.core.windows.net"
+		},
+		"alosynstorageaccount_properties_typeProperties_url": {
+			"value": "https://alosynstorageaccount.dfs.core.windows.net/"
+		}
+	}
+}
