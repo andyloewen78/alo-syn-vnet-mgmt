@@ -1,293 +1,293 @@
-﻿{
-      "name": "Ingest_adessoBW_T000",
-      "properties": {
-        "activities": [
-          {
-            "name": "Copy_T000",
-            "type": "Copy",
-            "dependsOn": [],
-            "policy": {
-              "timeout": "0.12:00:00",
-              "retry": 0,
-              "retryIntervalInSeconds": 30,
-              "secureOutput": false,
-              "secureInput": false
-            },
-            "userProperties": [],
-            "typeProperties": {
-              "source": {
-                "type": "SapTableSource",
-                "partitionOption": "None"
-              },
-              "sink": {
-                "type": "ParquetSink",
-                "storeSettings": {
-                  "type": "AzureBlobFSWriteSettings"
-                },
-                "formatSettings": {
-                  "type": "ParquetWriteSettings"
-                }
-              },
-              "enableStaging": false,
-              "translator": {
-                "type": "TabularTranslator",
-                "mappings": [
-    {
-      "source": {
-        "name": "MANDT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "MANDT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "MTEXT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "MTEXT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "ORT01",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "ORT01",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "MWAER",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "MWAER",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "ADRNR",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "ADRNR",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCCATEGORY",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCCATEGORY",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCCORACTIV",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCCORACTIV",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCNOCLIIND",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCNOCLIIND",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCCOPYLOCK",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCCOPYLOCK",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCNOCASCAD",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCNOCASCAD",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCSOFTLOCK",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCSOFTLOCK",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCORIGCONT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCORIGCONT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCIMAILDIS",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCIMAILDIS",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CCTEMPLOCK",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CCTEMPLOCK",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CHANGEUSER",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CHANGEUSER",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CHANGEDATE",
-        "type": "String",
-        "physicalType": "Unknown"
-      },
-      "sink": {
-        "name": "CHANGEDATE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "LOGSYS",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "LOGSYS",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    }                  
-                ],
-                "typeConversion": true,
-                "typeConversionSettings": {
-                  "allowDataTruncation": true,
-                  "treatBooleanAsNumber": false
-                }
-              }
-            },
-            "inputs": [
-              {
-                "referenceName": "adessoBW_T000",
-                "type": "DatasetReference"
-              }
-            ],
-            "outputs": [
-              {
-                "referenceName": "DS_Target_Parquet",
-                "type": "DatasetReference",
-                "parameters": {
-                  "Filesystem": {
-                    "value": "@pipeline().parameters.Filesystem",
-                    "type": "Expression"
-                  },
-                  "Folder": {
-                    "value": "@pipeline().parameters.Folder",
-                    "type": "Expression"
-                  },
-                  "Filename": {
-                    "value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
-                    "type": "Expression"
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "parameters": {
-          "Filesystem": {
-            "type": "string",
-            "defaultValue": "alosynfs"
-          },
-          "Folder": {
-            "type": "string",
-            "defaultValue": "Landing/adessoBW/T000/OUT"
-          },
-          "Filenameprefix": {
-            "type": "string",
-            "defaultValue": "T000"
-          }
-        },
-        "annotations": [],
-        "lastPublishTime": "2025-06-09T06:42:08Z"
-      },
-      "type": "Microsoft.Synapse/workspaces/pipelines"
+{
+	"name": "Ingest_adessoBW_T000",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_T000",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapTableSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "MTEXT",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "MTEXT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ORT01",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "ORT01",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "MWAER",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "MWAER",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ADRNR",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "ADRNR",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCCATEGORY",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCCATEGORY",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCCORACTIV",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCCORACTIV",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCNOCLIIND",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCNOCLIIND",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCCOPYLOCK",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCCOPYLOCK",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCNOCASCAD",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCNOCASCAD",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCSOFTLOCK",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCSOFTLOCK",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCORIGCONT",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCORIGCONT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCIMAILDIS",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCIMAILDIS",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CCTEMPLOCK",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CCTEMPLOCK",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CHANGEUSER",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CHANGEUSER",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CHANGEDATE",
+									"type": "String",
+									"physicalType": "Unknown"
+								},
+								"sink": {
+									"name": "CHANGEDATE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LOGSYS",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "LOGSYS",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "adessoBW_T000",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Target_Parquet",
+						"type": "DatasetReference",
+						"parameters": {
+							"Filesystem": {
+								"value": "@pipeline().parameters.Filesystem",
+								"type": "Expression"
+							},
+							"Folder": {
+								"value": "@pipeline().parameters.Folder",
+								"type": "Expression"
+							},
+							"Filename": {
+								"value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"Filesystem": {
+				"type": "string",
+				"defaultValue": "alosynfs"
+			},
+			"Folder": {
+				"type": "string",
+				"defaultValue": "Landing/adessoBW/T000/OUT"
+			},
+			"Filenameprefix": {
+				"type": "string",
+				"defaultValue": "T000"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-06-09T06:42:08Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
 }

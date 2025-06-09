@@ -1,257 +1,257 @@
-﻿{
-      "name": "Ingest_adessoBW_SFLIGHT",
-      "properties": {
-        "activities": [
-          {
-            "name": "Copy_SFLIGHT",
-            "type": "Copy",
-            "dependsOn": [],
-            "policy": {
-              "timeout": "0.12:00:00",
-              "retry": 0,
-              "retryIntervalInSeconds": 30,
-              "secureOutput": false,
-              "secureInput": false
-            },
-            "userProperties": [],
-            "typeProperties": {
-              "source": {
-                "type": "SapTableSource",
-                "partitionOption": "None"
-              },
-              "sink": {
-                "type": "ParquetSink",
-                "storeSettings": {
-                  "type": "AzureBlobFSWriteSettings"
-                },
-                "formatSettings": {
-                  "type": "ParquetWriteSettings"
-                }
-              },
-              "enableStaging": false,
-              "translator": {
-                "type": "TabularTranslator",
-                "mappings": [
-    {
-      "source": {
-        "name": "MANDT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "MANDT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CARRID",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CARRID",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CONNID",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CONNID",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "FLDATE",
-        "type": "String",
-        "physicalType": "Unknown"
-      },
-      "sink": {
-        "name": "FLDATE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "PRICE",
-        "type": "String",
-        "physicalType": "Unknown"
-      },
-      "sink": {
-        "name": "PRICE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CURRENCY",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CURRENCY",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "PLANETYPE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "PLANETYPE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "SEATSMAX",
-        "type": "String",
-        "physicalType": "N"
-      },
-      "sink": {
-        "name": "SEATSMAX",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "SEATSOCC",
-        "type": "String",
-        "physicalType": "N"
-      },
-      "sink": {
-        "name": "SEATSOCC",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "PAYMENTSUM",
-        "type": "String",
-        "physicalType": "Unknown"
-      },
-      "sink": {
-        "name": "PAYMENTSUM",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "SEATSMAX_B",
-        "type": "String",
-        "physicalType": "N"
-      },
-      "sink": {
-        "name": "SEATSMAX_B",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "SEATSOCC_B",
-        "type": "String",
-        "physicalType": "N"
-      },
-      "sink": {
-        "name": "SEATSOCC_B",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "SEATSMAX_F",
-        "type": "String",
-        "physicalType": "N"
-      },
-      "sink": {
-        "name": "SEATSMAX_F",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "SEATSOCC_F",
-        "type": "String",
-        "physicalType": "N"
-      },
-      "sink": {
-        "name": "SEATSOCC_F",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    }                  
-                ],
-                "typeConversion": true,
-                "typeConversionSettings": {
-                  "allowDataTruncation": true,
-                  "treatBooleanAsNumber": false
-                }
-              }
-            },
-            "inputs": [
-              {
-                "referenceName": "adessoBW_SFLIGHT",
-                "type": "DatasetReference"
-              }
-            ],
-            "outputs": [
-              {
-                "referenceName": "DS_Target_Parquet",
-                "type": "DatasetReference",
-                "parameters": {
-                  "Filesystem": {
-                    "value": "@pipeline().parameters.Filesystem",
-                    "type": "Expression"
-                  },
-                  "Folder": {
-                    "value": "@pipeline().parameters.Folder",
-                    "type": "Expression"
-                  },
-                  "Filename": {
-                    "value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
-                    "type": "Expression"
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "parameters": {
-          "Filesystem": {
-            "type": "string",
-            "defaultValue": "alosynfs"
-          },
-          "Folder": {
-            "type": "string",
-            "defaultValue": "Landing/adessoBW/SFLIGHT/OUT"
-          },
-          "Filenameprefix": {
-            "type": "string",
-            "defaultValue": "SFLIGHT"
-          }
-        },
-        "annotations": [],
-        "lastPublishTime": "2025-06-09T06:42:08Z"
-      },
-      "type": "Microsoft.Synapse/workspaces/pipelines"
+{
+	"name": "Ingest_adessoBW_SFLIGHT",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_SFLIGHT",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapTableSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CARRID",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CARRID",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CONNID",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CONNID",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "FLDATE",
+									"type": "String",
+									"physicalType": "Unknown"
+								},
+								"sink": {
+									"name": "FLDATE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PRICE",
+									"type": "String",
+									"physicalType": "Unknown"
+								},
+								"sink": {
+									"name": "PRICE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CURRENCY",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CURRENCY",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PLANETYPE",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "PLANETYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEATSMAX",
+									"type": "String",
+									"physicalType": "N"
+								},
+								"sink": {
+									"name": "SEATSMAX",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEATSOCC",
+									"type": "String",
+									"physicalType": "N"
+								},
+								"sink": {
+									"name": "SEATSOCC",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PAYMENTSUM",
+									"type": "String",
+									"physicalType": "Unknown"
+								},
+								"sink": {
+									"name": "PAYMENTSUM",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEATSMAX_B",
+									"type": "String",
+									"physicalType": "N"
+								},
+								"sink": {
+									"name": "SEATSMAX_B",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEATSOCC_B",
+									"type": "String",
+									"physicalType": "N"
+								},
+								"sink": {
+									"name": "SEATSOCC_B",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEATSMAX_F",
+									"type": "String",
+									"physicalType": "N"
+								},
+								"sink": {
+									"name": "SEATSMAX_F",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEATSOCC_F",
+									"type": "String",
+									"physicalType": "N"
+								},
+								"sink": {
+									"name": "SEATSOCC_F",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "adessoBW_SFLIGHT",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Target_Parquet",
+						"type": "DatasetReference",
+						"parameters": {
+							"Filesystem": {
+								"value": "@pipeline().parameters.Filesystem",
+								"type": "Expression"
+							},
+							"Folder": {
+								"value": "@pipeline().parameters.Folder",
+								"type": "Expression"
+							},
+							"Filename": {
+								"value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"Filesystem": {
+				"type": "string",
+				"defaultValue": "alosynfs"
+			},
+			"Folder": {
+				"type": "string",
+				"defaultValue": "Landing/adessoBW/SFLIGHT/OUT"
+			},
+			"Filenameprefix": {
+				"type": "string",
+				"defaultValue": "SFLIGHT"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-06-09T06:42:08Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
 }

@@ -1,281 +1,281 @@
-﻿{
-      "name": "Ingest_adessoBW_SCUSTOM",
-      "properties": {
-        "activities": [
-          {
-            "name": "Copy_SCUSTOM",
-            "type": "Copy",
-            "dependsOn": [],
-            "policy": {
-              "timeout": "0.12:00:00",
-              "retry": 0,
-              "retryIntervalInSeconds": 30,
-              "secureOutput": false,
-              "secureInput": false
-            },
-            "userProperties": [],
-            "typeProperties": {
-              "source": {
-                "type": "SapTableSource",
-                "partitionOption": "None"
-              },
-              "sink": {
-                "type": "ParquetSink",
-                "storeSettings": {
-                  "type": "AzureBlobFSWriteSettings"
-                },
-                "formatSettings": {
-                  "type": "ParquetWriteSettings"
-                }
-              },
-              "enableStaging": false,
-              "translator": {
-                "type": "TabularTranslator",
-                "mappings": [
-    {
-      "source": {
-        "name": "MANDT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "MANDT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "ID",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "ID",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "NAME",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "NAME",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "FORM",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "FORM",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "STREET",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "STREET",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "POSTBOX",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "POSTBOX",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "POSTCODE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "POSTCODE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CITY",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CITY",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "COUNTRY",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "COUNTRY",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "REGION",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "REGION",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "TELEPHONE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "TELEPHONE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "CUSTTYPE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CUSTTYPE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "DISCOUNT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "DISCOUNT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "LANGU",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "LANGU",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "EMAIL",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "EMAIL",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-    {
-      "source": {
-        "name": "WEBUSER",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "WEBUSER",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    }                  
-                ],
-                "typeConversion": true,
-                "typeConversionSettings": {
-                  "allowDataTruncation": true,
-                  "treatBooleanAsNumber": false
-                }
-              }
-            },
-            "inputs": [
-              {
-                "referenceName": "adessoBW_SCUSTOM",
-                "type": "DatasetReference"
-              }
-            ],
-            "outputs": [
-              {
-                "referenceName": "DS_Target_Parquet",
-                "type": "DatasetReference",
-                "parameters": {
-                  "Filesystem": {
-                    "value": "@pipeline().parameters.Filesystem",
-                    "type": "Expression"
-                  },
-                  "Folder": {
-                    "value": "@pipeline().parameters.Folder",
-                    "type": "Expression"
-                  },
-                  "Filename": {
-                    "value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
-                    "type": "Expression"
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "parameters": {
-          "Filesystem": {
-            "type": "string",
-            "defaultValue": "alosynfs"
-          },
-          "Folder": {
-            "type": "string",
-            "defaultValue": "Landing/adessoBW/SCUSTOM/OUT"
-          },
-          "Filenameprefix": {
-            "type": "string",
-            "defaultValue": "SCUSTOM"
-          }
-        },
-        "annotations": [],
-        "lastPublishTime": "2025-06-09T06:42:08Z"
-      },
-      "type": "Microsoft.Synapse/workspaces/pipelines"
+{
+	"name": "Ingest_adessoBW_SCUSTOM",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_SCUSTOM",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapTableSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "FORM",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "FORM",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "STREET",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTBOX",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "POSTBOX",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTCODE",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "POSTCODE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "COUNTRY",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "REGION",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "REGION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TELEPHONE",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "TELEPHONE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTTYPE",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "CUSTTYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DISCOUNT",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "DISCOUNT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LANGU",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "LANGU",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "EMAIL",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "EMAIL",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "WEBUSER",
+									"type": "String",
+									"physicalType": "C"
+								},
+								"sink": {
+									"name": "WEBUSER",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "adessoBW_SCUSTOM",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Target_Parquet",
+						"type": "DatasetReference",
+						"parameters": {
+							"Filesystem": {
+								"value": "@pipeline().parameters.Filesystem",
+								"type": "Expression"
+							},
+							"Folder": {
+								"value": "@pipeline().parameters.Folder",
+								"type": "Expression"
+							},
+							"Filename": {
+								"value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"Filesystem": {
+				"type": "string",
+				"defaultValue": "alosynfs"
+			},
+			"Folder": {
+				"type": "string",
+				"defaultValue": "Landing/adessoBW/SCUSTOM/OUT"
+			},
+			"Filenameprefix": {
+				"type": "string",
+				"defaultValue": "SCUSTOM"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-06-09T06:42:08Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
 }
