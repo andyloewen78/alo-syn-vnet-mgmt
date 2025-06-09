@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/alo-syn-vnet-mgmt/FileContentIndex
+/.vs/alo-syn-vnet-mgmt/CopilotIndices/17.12.38.29086
+/.vs/alo-syn-vnet-mgmt/v17
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
