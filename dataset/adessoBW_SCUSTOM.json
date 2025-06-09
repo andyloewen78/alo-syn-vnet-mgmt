@@ -1,16 +1,16 @@
-﻿{
-    "name": "adessoBW_SCUSTOM",
-    "properties": {
-        "linkedServiceName": {
-            "referenceName": "adessoBW",
-            "type": "LinkedServiceReference"
-        },
-        "annotations": [],
-        "type": "SapTableResource",
-        "schema": [],
-        "typeProperties": {
-            "tableName": "SCUSTOM"
-        }
-    },
-    "type": "Microsoft.Synapse/workspaces/datasets"
+{
+	"name": "adessoBW_SCUSTOM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adessoBW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SapTableResource",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "SCUSTOM"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
 }
