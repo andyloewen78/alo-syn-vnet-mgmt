@@ -1,9 +1,9 @@
 ﻿{
-      "name": "Ingest_adessoBW_USR01",
+      "name": "Ingest_adessoBW_T000",
       "properties": {
         "activities": [
           {
-            "name": "Copy_USR01",
+            "name": "Copy_T000",
             "type": "Copy",
             "dependsOn": [],
             "policy": {
@@ -47,12 +47,12 @@
   
     {
       "source": {
-        "name": "BNAME",
+        "name": "MTEXT",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "BNAME",
+        "name": "MTEXT",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -60,12 +60,12 @@
   
     {
       "source": {
-        "name": "STCOD",
+        "name": "ORT01",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "STCOD",
+        "name": "ORT01",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -73,12 +73,12 @@
   
     {
       "source": {
-        "name": "SPLD",
+        "name": "MWAER",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPLD",
+        "name": "MWAER",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -86,12 +86,12 @@
   
     {
       "source": {
-        "name": "SPLG",
+        "name": "ADRNR",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPLG",
+        "name": "ADRNR",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -99,12 +99,12 @@
   
     {
       "source": {
-        "name": "SPDB",
+        "name": "CCCATEGORY",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPDB",
+        "name": "CCCATEGORY",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -112,12 +112,12 @@
   
     {
       "source": {
-        "name": "SPDA",
+        "name": "CCCORACTIV",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPDA",
+        "name": "CCCORACTIV",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -125,12 +125,12 @@
   
     {
       "source": {
-        "name": "DATFM",
+        "name": "CCNOCLIIND",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "DATFM",
+        "name": "CCNOCLIIND",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -138,12 +138,12 @@
   
     {
       "source": {
-        "name": "DCPFM",
+        "name": "CCCOPYLOCK",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "DCPFM",
+        "name": "CCCOPYLOCK",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -151,12 +151,12 @@
   
     {
       "source": {
-        "name": "HDEST",
+        "name": "CCNOCASCAD",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "HDEST",
+        "name": "CCNOCASCAD",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -164,12 +164,12 @@
   
     {
       "source": {
-        "name": "HMAND",
+        "name": "CCSOFTLOCK",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "HMAND",
+        "name": "CCSOFTLOCK",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -177,12 +177,12 @@
   
     {
       "source": {
-        "name": "HNAME",
+        "name": "CCORIGCONT",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "HNAME",
+        "name": "CCORIGCONT",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -190,12 +190,12 @@
   
     {
       "source": {
-        "name": "MENON",
+        "name": "CCIMAILDIS",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "MENON",
+        "name": "CCIMAILDIS",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -203,12 +203,12 @@
   
     {
       "source": {
-        "name": "MENUE",
+        "name": "CCTEMPLOCK",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "MENUE",
+        "name": "CCTEMPLOCK",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -216,12 +216,12 @@
   
     {
       "source": {
-        "name": "STRTT",
+        "name": "CHANGEUSER",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "STRTT",
+        "name": "CHANGEUSER",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -229,12 +229,12 @@
   
     {
       "source": {
-        "name": "LANGU",
+        "name": "CHANGEDATE",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "Unknown"
       },
       "sink": {
-        "name": "LANGU",
+        "name": "CHANGEDATE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -242,38 +242,12 @@
   
     {
       "source": {
-        "name": "CATTKENNZ",
+        "name": "LOGSYS",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "CATTKENNZ",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "TIMEFM",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "TIMEFM",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "IANATZONECODE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "IANATZONECODE",
+        "name": "LOGSYS",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -289,7 +263,7 @@
             },
             "inputs": [
               {
-                "referenceName": "adessoBW_USR01",
+                "referenceName": "adessoBW_T000",
                 "type": "DatasetReference"
               }
             ],
@@ -322,11 +296,11 @@
           },
           "Folder": {
             "type": "string",
-            "defaultValue": "Landing/adessoBW/USR01/OUT"
+            "defaultValue": "Landing/adessoBW/T000/OUT"
           },
           "Filenameprefix": {
             "type": "string",
-            "defaultValue": "USR01"
+            "defaultValue": "T000"
           }
         },
         "annotations": [],

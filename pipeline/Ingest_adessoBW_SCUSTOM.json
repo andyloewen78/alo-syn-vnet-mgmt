@@ -1,9 +1,9 @@
 ﻿{
-      "name": "Ingest_adessoBW_USR01",
+      "name": "Ingest_adessoBW_SCUSTOM",
       "properties": {
         "activities": [
           {
-            "name": "Copy_USR01",
+            "name": "Copy_SCUSTOM",
             "type": "Copy",
             "dependsOn": [],
             "policy": {
@@ -47,12 +47,12 @@
   
     {
       "source": {
-        "name": "BNAME",
+        "name": "ID",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "BNAME",
+        "name": "ID",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -60,12 +60,12 @@
   
     {
       "source": {
-        "name": "STCOD",
+        "name": "NAME",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "STCOD",
+        "name": "NAME",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -73,12 +73,12 @@
   
     {
       "source": {
-        "name": "SPLD",
+        "name": "FORM",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPLD",
+        "name": "FORM",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -86,12 +86,12 @@
   
     {
       "source": {
-        "name": "SPLG",
+        "name": "STREET",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPLG",
+        "name": "STREET",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -99,12 +99,12 @@
   
     {
       "source": {
-        "name": "SPDB",
+        "name": "POSTBOX",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPDB",
+        "name": "POSTBOX",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -112,12 +112,12 @@
   
     {
       "source": {
-        "name": "SPDA",
+        "name": "POSTCODE",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPDA",
+        "name": "POSTCODE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -125,12 +125,12 @@
   
     {
       "source": {
-        "name": "DATFM",
+        "name": "CITY",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "DATFM",
+        "name": "CITY",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -138,12 +138,12 @@
   
     {
       "source": {
-        "name": "DCPFM",
+        "name": "COUNTRY",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "DCPFM",
+        "name": "COUNTRY",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -151,12 +151,12 @@
   
     {
       "source": {
-        "name": "HDEST",
+        "name": "REGION",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "HDEST",
+        "name": "REGION",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -164,12 +164,12 @@
   
     {
       "source": {
-        "name": "HMAND",
+        "name": "TELEPHONE",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "HMAND",
+        "name": "TELEPHONE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -177,12 +177,12 @@
   
     {
       "source": {
-        "name": "HNAME",
+        "name": "CUSTTYPE",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "HNAME",
+        "name": "CUSTTYPE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -190,38 +190,12 @@
   
     {
       "source": {
-        "name": "MENON",
+        "name": "DISCOUNT",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "MENON",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "MENUE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "MENUE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "STRTT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "STRTT",
+        "name": "DISCOUNT",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -242,12 +216,12 @@
   
     {
       "source": {
-        "name": "CATTKENNZ",
+        "name": "EMAIL",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "CATTKENNZ",
+        "name": "EMAIL",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -255,25 +229,12 @@
   
     {
       "source": {
-        "name": "TIMEFM",
+        "name": "WEBUSER",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "TIMEFM",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "IANATZONECODE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "IANATZONECODE",
+        "name": "WEBUSER",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -289,7 +250,7 @@
             },
             "inputs": [
               {
-                "referenceName": "adessoBW_USR01",
+                "referenceName": "adessoBW_SCUSTOM",
                 "type": "DatasetReference"
               }
             ],
@@ -322,11 +283,11 @@
           },
           "Folder": {
             "type": "string",
-            "defaultValue": "Landing/adessoBW/USR01/OUT"
+            "defaultValue": "Landing/adessoBW/SCUSTOM/OUT"
           },
           "Filenameprefix": {
             "type": "string",
-            "defaultValue": "USR01"
+            "defaultValue": "SCUSTOM"
           }
         },
         "annotations": [],

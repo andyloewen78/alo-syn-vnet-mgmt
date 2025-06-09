@@ -1,0 +1,661 @@
+﻿{
+      "name": "Ingest_adessoBW_USR02",
+      "properties": {
+        "activities": [
+          {
+            "name": "Copy_USR02",
+            "type": "Copy",
+            "dependsOn": [],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [],
+            "typeProperties": {
+              "source": {
+                "type": "SapTableSource",
+                "partitionOption": "None"
+              },
+              "sink": {
+                "type": "ParquetSink",
+                "storeSettings": {
+                  "type": "AzureBlobFSWriteSettings"
+                },
+                "formatSettings": {
+                  "type": "ParquetWriteSettings"
+                }
+              },
+              "enableStaging": false,
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+    {
+      "source": {
+        "name": "MANDT",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "MANDT",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BNAME",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "BNAME",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BCODE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "BCODE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "GLTGV",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "GLTGV",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "GLTGB",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "GLTGB",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "USTYP",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "USTYP",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CLASS",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CLASS",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "LOCNT",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "LOCNT",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "UFLAG",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "UFLAG",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "ACCNT",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "ACCNT",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "ANAME",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "ANAME",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "ERDAT",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "ERDAT",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "TRDAT",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "TRDAT",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "LTIME",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "LTIME",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "OCOD1",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "OCOD1",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BCDA1",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "BCDA1",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CODV1",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CODV1",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "OCOD2",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "OCOD2",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BCDA2",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "BCDA2",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CODV2",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CODV2",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "OCOD3",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "OCOD3",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BCDA3",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "BCDA3",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CODV3",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CODV3",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "OCOD4",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "OCOD4",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BCDA4",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "BCDA4",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CODV4",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CODV4",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "OCOD5",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "OCOD5",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "BCDA5",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "BCDA5",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CODV5",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CODV5",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "VERSN",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "VERSN",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "CODVN",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "CODVN",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "TZONE",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "TZONE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "ZBVMASTER",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "ZBVMASTER",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PASSCODE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PASSCODE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDCHGDATE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDCHGDATE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDSTATE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDSTATE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "RESERVED",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "RESERVED",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDHISTORY",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDHISTORY",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDLGNDATE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDLGNDATE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDSETDATE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDSETDATE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDINITIAL",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDINITIAL",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDLOCKDATE",
+        "type": "String",
+        "physicalType": "Unknown"
+      },
+      "sink": {
+        "name": "PWDLOCKDATE",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "PWDSALTEDHASH",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "PWDSALTEDHASH",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+  
+    {
+      "source": {
+        "name": "SECURITY_POLICY",
+        "type": "String",
+        "physicalType": "C"
+      },
+      "sink": {
+        "name": "SECURITY_POLICY",
+        "type": "String",
+        "physicalType": "UTF8"
+      }
+    },
+                    
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            },
+            "inputs": [
+              {
+                "referenceName": "adessoBW_USR02",
+                "type": "DatasetReference"
+              }
+            ],
+            "outputs": [
+              {
+                "referenceName": "DS_Target_Parquet",
+                "type": "DatasetReference",
+                "parameters": {
+                  "Filesystem": {
+                    "value": "@pipeline().parameters.Filesystem",
+                    "type": "Expression"
+                  },
+                  "Folder": {
+                    "value": "@pipeline().parameters.Folder",
+                    "type": "Expression"
+                  },
+                  "Filename": {
+                    "value": "@concat(pipeline().parameters.Filenameprefix,'_', formatDateTime(utcnow(),'yyyy-MM-dd-HH-mm-ss-fffffff'),'.parquet')",
+                    "type": "Expression"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "parameters": {
+          "Filesystem": {
+            "type": "string",
+            "defaultValue": "alosynfs"
+          },
+          "Folder": {
+            "type": "string",
+            "defaultValue": "Landing/adessoBW/USR02/OUT"
+          },
+          "Filenameprefix": {
+            "type": "string",
+            "defaultValue": "USR02"
+          }
+        },
+        "annotations": [],
+        "lastPublishTime": "2025-06-09T06:42:08Z"
+      },
+      "type": "Microsoft.Synapse/workspaces/pipelines"
+}

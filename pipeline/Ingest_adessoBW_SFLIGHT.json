@@ -1,9 +1,9 @@
 ﻿{
-      "name": "Ingest_adessoBW_USR01",
+      "name": "Ingest_adessoBW_SFLIGHT",
       "properties": {
         "activities": [
           {
-            "name": "Copy_USR01",
+            "name": "Copy_SFLIGHT",
             "type": "Copy",
             "dependsOn": [],
             "policy": {
@@ -47,12 +47,12 @@
   
     {
       "source": {
-        "name": "BNAME",
+        "name": "CARRID",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "BNAME",
+        "name": "CARRID",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -60,12 +60,12 @@
   
     {
       "source": {
-        "name": "STCOD",
+        "name": "CONNID",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "STCOD",
+        "name": "CONNID",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -73,12 +73,12 @@
   
     {
       "source": {
-        "name": "SPLD",
+        "name": "FLDATE",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "Unknown"
       },
       "sink": {
-        "name": "SPLD",
+        "name": "FLDATE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -86,12 +86,12 @@
   
     {
       "source": {
-        "name": "SPLG",
+        "name": "PRICE",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "Unknown"
       },
       "sink": {
-        "name": "SPLG",
+        "name": "PRICE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -99,12 +99,12 @@
   
     {
       "source": {
-        "name": "SPDB",
+        "name": "CURRENCY",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPDB",
+        "name": "CURRENCY",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -112,12 +112,12 @@
   
     {
       "source": {
-        "name": "SPDA",
+        "name": "PLANETYPE",
         "type": "String",
         "physicalType": "C"
       },
       "sink": {
-        "name": "SPDA",
+        "name": "PLANETYPE",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -125,12 +125,12 @@
   
     {
       "source": {
-        "name": "DATFM",
+        "name": "SEATSMAX",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "N"
       },
       "sink": {
-        "name": "DATFM",
+        "name": "SEATSMAX",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -138,12 +138,12 @@
   
     {
       "source": {
-        "name": "DCPFM",
+        "name": "SEATSOCC",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "N"
       },
       "sink": {
-        "name": "DCPFM",
+        "name": "SEATSOCC",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -151,12 +151,12 @@
   
     {
       "source": {
-        "name": "HDEST",
+        "name": "PAYMENTSUM",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "Unknown"
       },
       "sink": {
-        "name": "HDEST",
+        "name": "PAYMENTSUM",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -164,12 +164,12 @@
   
     {
       "source": {
-        "name": "HMAND",
+        "name": "SEATSMAX_B",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "N"
       },
       "sink": {
-        "name": "HMAND",
+        "name": "SEATSMAX_B",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -177,12 +177,12 @@
   
     {
       "source": {
-        "name": "HNAME",
+        "name": "SEATSOCC_B",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "N"
       },
       "sink": {
-        "name": "HNAME",
+        "name": "SEATSOCC_B",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -190,12 +190,12 @@
   
     {
       "source": {
-        "name": "MENON",
+        "name": "SEATSMAX_F",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "N"
       },
       "sink": {
-        "name": "MENON",
+        "name": "SEATSMAX_F",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -203,77 +203,12 @@
   
     {
       "source": {
-        "name": "MENUE",
+        "name": "SEATSOCC_F",
         "type": "String",
-        "physicalType": "C"
+        "physicalType": "N"
       },
       "sink": {
-        "name": "MENUE",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "STRTT",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "STRTT",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "LANGU",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "LANGU",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "CATTKENNZ",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "CATTKENNZ",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "TIMEFM",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "TIMEFM",
-        "type": "String",
-        "physicalType": "UTF8"
-      }
-    },
-  
-    {
-      "source": {
-        "name": "IANATZONECODE",
-        "type": "String",
-        "physicalType": "C"
-      },
-      "sink": {
-        "name": "IANATZONECODE",
+        "name": "SEATSOCC_F",
         "type": "String",
         "physicalType": "UTF8"
       }
@@ -289,7 +224,7 @@
             },
             "inputs": [
               {
-                "referenceName": "adessoBW_USR01",
+                "referenceName": "adessoBW_SFLIGHT",
                 "type": "DatasetReference"
               }
             ],
@@ -322,11 +257,11 @@
           },
           "Folder": {
             "type": "string",
-            "defaultValue": "Landing/adessoBW/USR01/OUT"
+            "defaultValue": "Landing/adessoBW/SFLIGHT/OUT"
           },
           "Filenameprefix": {
             "type": "string",
-            "defaultValue": "USR01"
+            "defaultValue": "SFLIGHT"
           }
         },
         "annotations": [],

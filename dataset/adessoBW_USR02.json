@@ -1,5 +1,5 @@
 ﻿{
-    "name": "adessoBW_USR01",
+    "name": "adessoBW_USR02",
     "properties": {
         "linkedServiceName": {
             "referenceName": "adessoBW",
@@ -9,7 +9,7 @@
         "type": "SapTableResource",
         "schema": [],
         "typeProperties": {
-            "tableName": "USR01"
+            "tableName": "USR02"
         }
     },
     "type": "Microsoft.Synapse/workspaces/datasets"
