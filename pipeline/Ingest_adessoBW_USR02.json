@@ -44,7 +44,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BNAME",
@@ -57,7 +56,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BCODE",
@@ -70,7 +68,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "GLTGV",
@@ -83,7 +80,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "GLTGB",
@@ -96,7 +92,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "USTYP",
@@ -109,7 +104,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CLASS",
@@ -122,7 +116,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "LOCNT",
@@ -135,7 +128,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "UFLAG",
@@ -148,7 +140,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "ACCNT",
@@ -161,7 +152,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "ANAME",
@@ -174,7 +164,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "ERDAT",
@@ -187,7 +176,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "TRDAT",
@@ -200,7 +188,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "LTIME",
@@ -213,7 +200,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "OCOD1",
@@ -226,7 +212,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BCDA1",
@@ -239,7 +224,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CODV1",
@@ -252,7 +236,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "OCOD2",
@@ -265,7 +248,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BCDA2",
@@ -278,7 +260,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CODV2",
@@ -291,7 +272,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "OCOD3",
@@ -304,7 +284,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BCDA3",
@@ -317,7 +296,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CODV3",
@@ -330,7 +308,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "OCOD4",
@@ -343,7 +320,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BCDA4",
@@ -356,7 +332,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CODV4",
@@ -369,7 +344,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "OCOD5",
@@ -382,7 +356,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "BCDA5",
@@ -395,7 +368,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CODV5",
@@ -408,7 +380,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "VERSN",
@@ -421,7 +392,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CODVN",
@@ -434,7 +404,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "TZONE",
@@ -447,7 +416,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "ZBVMASTER",
@@ -460,7 +428,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PASSCODE",
@@ -473,7 +440,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDCHGDATE",
@@ -486,7 +452,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDSTATE",
@@ -499,7 +464,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "RESERVED",
@@ -512,7 +476,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDHISTORY",
@@ -525,7 +488,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDLGNDATE",
@@ -538,7 +500,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDSETDATE",
@@ -551,7 +512,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDINITIAL",
@@ -564,7 +524,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDLOCKDATE",
@@ -577,7 +536,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PWDSALTEDHASH",
@@ -590,7 +548,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SECURITY_POLICY",
@@ -602,8 +559,7 @@
         "type": "String",
         "physicalType": "UTF8"
       }
-    },
-                    
+    }                  
                 ],
                 "typeConversion": true,
                 "typeConversionSettings": {

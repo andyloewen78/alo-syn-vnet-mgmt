@@ -44,7 +44,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "MTEXT",
@@ -57,7 +56,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "ORT01",
@@ -70,7 +68,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "MWAER",
@@ -83,7 +80,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "ADRNR",
@@ -96,7 +92,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCCATEGORY",
@@ -109,7 +104,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCCORACTIV",
@@ -122,7 +116,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCNOCLIIND",
@@ -135,7 +128,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCCOPYLOCK",
@@ -148,7 +140,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCNOCASCAD",
@@ -161,7 +152,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCSOFTLOCK",
@@ -174,7 +164,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCORIGCONT",
@@ -187,7 +176,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCIMAILDIS",
@@ -200,7 +188,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CCTEMPLOCK",
@@ -213,7 +200,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CHANGEUSER",
@@ -226,7 +212,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CHANGEDATE",
@@ -239,7 +224,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "LOGSYS",
@@ -251,8 +235,7 @@
         "type": "String",
         "physicalType": "UTF8"
       }
-    },
-                    
+    }                  
                 ],
                 "typeConversion": true,
                 "typeConversionSettings": {

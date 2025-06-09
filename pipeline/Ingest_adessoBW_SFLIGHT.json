@@ -44,7 +44,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CARRID",
@@ -57,7 +56,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CONNID",
@@ -70,7 +68,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "FLDATE",
@@ -83,7 +80,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PRICE",
@@ -96,7 +92,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "CURRENCY",
@@ -109,7 +104,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PLANETYPE",
@@ -122,7 +116,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SEATSMAX",
@@ -135,7 +128,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SEATSOCC",
@@ -148,7 +140,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "PAYMENTSUM",
@@ -161,7 +152,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SEATSMAX_B",
@@ -174,7 +164,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SEATSOCC_B",
@@ -187,7 +176,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SEATSMAX_F",
@@ -200,7 +188,6 @@
         "physicalType": "UTF8"
       }
     },
-  
     {
       "source": {
         "name": "SEATSOCC_F",
@@ -212,8 +199,7 @@
         "type": "String",
         "physicalType": "UTF8"
       }
-    },
-                    
+    }                  
                 ],
                 "typeConversion": true,
                 "typeConversionSettings": {
