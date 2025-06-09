@@ -1,0 +1,43 @@
+{
+	"name": "DS_Target_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "alosynstorageaccount",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Filesystem": {
+				"type": "string",
+				"defaultValue": "alosynfs"
+			},
+			"Folder": {
+				"type": "string"
+			},
+			"Filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().Filename",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().Folder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().Filesystem",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

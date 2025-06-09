@@ -1,0 +1,6 @@
+{
+	"name": "IRSOnPrem",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

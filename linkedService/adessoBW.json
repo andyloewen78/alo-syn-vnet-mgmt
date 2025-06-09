@@ -1,0 +1,21 @@
+{
+	"name": "adessoBW",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapTable",
+		"typeProperties": {
+			"clientId": "100",
+			"language": "DE",
+			"sncMode": false,
+			"userName": "loewen-a",
+			"server": "10.252.20.139",
+			"systemNumber": "00",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiYTk0MDI2MS03MGVmLTQ3YjUtODBlMi0yZjcyYWE3YjZhMzUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IRSOnPrem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

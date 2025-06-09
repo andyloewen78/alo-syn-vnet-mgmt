@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-custstgacct--alo-syn-vnet-mgmt-alosynstorageaccount",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/f20488a6-4e1e-4864-b913-2ef3c3d047fa/resourceGroups/CC_MS/providers/Microsoft.Storage/storageAccounts/alosynstorageaccount",
+		"groupId": "dfs",
+		"fqdns": [
+			"alosynstorageaccount.dfs.core.windows.net"
+		]
+	}
+}

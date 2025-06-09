@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--alo-syn-vnet-mgmt",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/f20488a6-4e1e-4864-b913-2ef3c3d047fa/resourceGroups/CC_MS/providers/Microsoft.Synapse/workspaces/alo-syn-vnet-mgmt",
+		"groupId": "sql",
+		"fqdns": [
+			"alo-syn-vnet-mgmt.86ed07c5-eaff-47e2-b429-5c77c993754f.sql.azuresynapse.net"
+		]
+	}
+}

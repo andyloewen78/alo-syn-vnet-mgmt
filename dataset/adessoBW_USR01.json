@@ -1,0 +1,16 @@
+{
+	"name": "adessoBW_USR01",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adessoBW",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SapTableResource",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "USR01"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
