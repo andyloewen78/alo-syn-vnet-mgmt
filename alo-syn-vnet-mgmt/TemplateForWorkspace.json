@@ -20,6 +20,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'alosynstorageaccount'"
 		},
+		"SAPSF_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sandbox.api.sap.com/successfactors/odata/v2/"
+		},
+		"SAPSFRest_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sandbox.api.sap.com"
+		},
 		"adessoBW_properties_typeProperties_clientId": {
 			"type": "string",
 			"defaultValue": "100"
@@ -49,6 +57,103 @@
 		"workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('workspaceName'), '/Ingest_SAPSF_EmpEmployment')]",
+			"type": "Microsoft.Synapse/workspaces/pipelines",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_EmpEmployment",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
+								}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "SAPSFRest",
+								"type": "DatasetReference",
+								"parameters": {
+									"Tablename": {
+										"value": "@pipeline().parameters.Tablename",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_Target_JSON",
+								"type": "DatasetReference",
+								"parameters": {
+									"Filesystem": {
+										"value": "@pipeline().parameters.Filesystem",
+										"type": "Expression"
+									},
+									"Folder": {
+										"value": "@pipeline().parameters.Folder",
+										"type": "Expression"
+									},
+									"Filename": {
+										"value": "@pipeline().parameters.Tablename",
+										"type": "Expression"
+									}
+								}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"Tablename": {
+						"type": "string",
+						"defaultValue": "EmpEmployment"
+					},
+					"Filesystem": {
+						"type": "string",
+						"defaultValue": "alosynfs"
+					},
+					"Folder": {
+						"type": "string",
+						"defaultValue": "Landing/SAPSF/EmpEmployment/OUT"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/datasets/SAPSFRest')]",
+				"[concat(variables('workspaceId'), '/datasets/DS_Target_JSON')]"
+			]
+		},
 		{
 			"name": "[concat(parameters('workspaceName'), '/Ingest_adessoBW_SBOOK')]",
 			"type": "Microsoft.Synapse/workspaces/pipelines",
@@ -2246,6 +2351,40 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('workspaceName'), '/DS_Target_JSON')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "alosynstorageaccount",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Filesystem": {
+						"type": "string",
+						"defaultValue": "alosynfs"
+					},
+					"Folder": {
+						"type": "string"
+					},
+					"Filename": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/alosynstorageaccount')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('workspaceName'), '/DS_Target_Parquet')]",
 			"type": "Microsoft.Synapse/workspaces/datasets",
 			"apiVersion": "2019-06-01-preview",
@@ -2290,6 +2429,34 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/linkedServices/alosynstorageaccount')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SAPSFRest')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SAPSFRest",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Tablename": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {
+					"relativeUrl": {
+						"value": "@concat('/successfactors/odata/v2/',dataset().Tablename,'?$format=JSON')",
+						"type": "Expression"
+					}
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/SAPSFRest')]"
 			]
 		},
 		{
@@ -2410,6 +2577,53 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/linkedServices/adessoBW')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SAPSF')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "OData",
+				"typeProperties": {
+					"url": "[parameters('SAPSF_properties_typeProperties_url')]",
+					"authenticationType": "Anonymous",
+					"authHeaders": {
+						"APIKey": {
+							"type": "SecureString",
+							"value": "**********"
+						}
+					}
+				},
+				"connectVia": {
+					"referenceName": "IRSOnPrem",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/IRSOnPrem')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SAPSFRest')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "[parameters('SAPSFRest_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				},
+				"connectVia": {
+					"referenceName": "IRSOnPrem",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/IRSOnPrem')]"
 			]
 		},
 		{

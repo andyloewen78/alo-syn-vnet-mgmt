@@ -14,6 +14,12 @@
 		"alosynstorageaccount_accountKey": {
 			"value": ""
 		},
+		"SAPSF_properties_typeProperties_url": {
+			"value": "https://sandbox.api.sap.com/successfactors/odata/v2/"
+		},
+		"SAPSFRest_properties_typeProperties_url": {
+			"value": "https://sandbox.api.sap.com"
+		},
 		"adessoBW_properties_typeProperties_clientId": {
 			"value": "100"
 		},
