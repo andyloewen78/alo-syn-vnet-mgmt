@@ -5,10 +5,10 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://sandbox.api.sap.com/successfactors",
+			"url": "https://sandbox.api.sap.com",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxOWEwZDExMy02MzIxLTRiZjgtODljYS1mNzI3NjI0ZDIxZTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1MzUwNjY3Zi03YWVlLTRjMDUtYjJkMy1hMjhhMGFlZTk2MjUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "IRSOnPrem",
