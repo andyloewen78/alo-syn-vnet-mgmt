@@ -1,0 +1,18 @@
+{
+	"name": "SAPSFRest",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://sandbox.api.sap.com/successfactors",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxOWEwZDExMy02MzIxLTRiZjgtODljYS1mNzI3NjI0ZDIxZTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IRSOnPrem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
