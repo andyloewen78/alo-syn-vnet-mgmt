@@ -1,0 +1,23 @@
+{
+	"name": "SAPSFRest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SAPSFRest",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "@concat('/successfactors/odata/v2/',dataset().Tablename,'?$format=JSON')",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}
